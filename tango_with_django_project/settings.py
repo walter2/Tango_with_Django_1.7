@@ -82,8 +82,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
+STATIC_PATH = os.path.join(BASE_DIR, 'static')
+
 STATIC_URL = '/static/'
 
-TEMPLATE_DIRS = [  #might be actually a tupel than a list
+STATICFILES_DIRS = [ #( ... is a list in the Django documentation
+    STATIC_PATH,     #https://docs.djangoproject.com/en/1.7/ref/settings/#std:setting-STATIC_URL
+] #)
+
+TEMPLATE_DIRS = ( #[ ... is a tupel in the Django documentation
     TEMPLATE_PATH,
-]
+) #]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
