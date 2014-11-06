@@ -1,10 +1,13 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from rango.models import Category, Page
 
 
 def index(request):
     '''index() renders the index page.'''
-    context_dict = {'boldmessage': 'Here some bold font.'}
+    category_list = Category.objects.order_by('-likes')[:5]
+    context_dict = {'boldmessage': 'Has he greeted other worlds/planets as well?',
+                    'categories': category_list}
     return render(request, 'rango/index.html', context_dict)
 
 

@@ -5,16 +5,29 @@
 <html>
 
     <head lang="en">
+
         <meta charset="UTF-8">
         <title>Rango</title>
+
     </head>
 
     <body>
+
         <h1>Rango says ...</h1>
         hello world! <br /><strong>{{ boldmessage }}</strong><br/>
+        <br /><a>Here are the latest categories:</a><br/>
+        {% if categories %}
+            <ul>
+                {% for category in categories %}
+                <li>{{ category.name }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There are no categories present.</strong>
+        {% endif %}
         <br /><a href="/rango/about">About</a><br />
         <img width="500" hight="300" src="{% static 'images/London_Canary_Warf_with_cloud_Oct2014.jpg' %}" title="Picture of Canary Warf London with cloud." alt="Picture of Canary Warf London with cloud." />
 
-
     </body>
+
 </html>
