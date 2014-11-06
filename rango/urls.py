@@ -1,6 +1,9 @@
 from django.conf.urls import patterns, url
 from rango import views
 
+''''rango' app URL pattern filters.'''
+
+
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
     url(r'^index', views.index, name='index'),

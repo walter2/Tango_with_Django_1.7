@@ -8,9 +8,12 @@ django.setup()
 
 from rango.models import Category, Page
 
+
 def populate():
     '''populate() holds the data that is being fed into the database.'''
-    python_cat = add_cat('Python')
+    python_cat = add_cat(name='Python',
+                         views=128,
+                         likes=64)
 
     add_page(cat=python_cat,
              title='Official Python Tutorial',
@@ -24,7 +27,9 @@ def populate():
              title='Learn Python in 10 Minutes',
              url='http://www.korokithakis.net/tutorials/python/')
 
-    django_cat = add_cat('Django')
+    django_cat = add_cat(name='Django',
+                         views=64,
+                         likes=32)
 
     add_page(cat=django_cat,
         title='Test Driven Development with Python',
@@ -46,7 +51,9 @@ def populate():
              title='How to Tango with Django',
              url='http://www.tangowithdjango.com/')
 
-    frame_cat = add_cat('Other Frameworks')
+    frame_cat = add_cat(name='Other Frameworks',
+                        views=32,
+                        likes=16)
 
     add_page(cat=frame_cat,
              title='Bottle',
@@ -69,12 +76,16 @@ def add_page(cat, title, url, views=0):
     page = Page.objects.get_or_create(category=cat,title=title, url=url, views=views)[0]
     return page
 
-def add_cat(name):
+def add_cat(name, views, likes):
     '''add_cat() takes the category name as input.
        The category object is returned with the a boolean if the object was created or not.
     '''
     category = Category.objects.get_or_create(name=name)[0]
+    category.views = views
+    category.likes = likes
+    category.save()
     return category
+
 
 if __name__ == '__main__':
     print('Starting the Rango population script ...'
