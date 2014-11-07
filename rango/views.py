@@ -8,6 +8,12 @@ def index(request):
     category_list = Category.objects.order_by('-likes')[:5]
     context_dict = {'boldmessage': 'Has he greeted other worlds/planets as well?',
                     'categories': category_list}
+    try:
+        pages = Page.objects.order_by('-views')[:5]
+        context_dict['pages'] = pages
+        context_dict['page_get_success'] = True
+    except Category.DoesNotExist:
+        pass
     return render(request, 'rango/index.html', context_dict)
 
 

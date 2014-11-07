@@ -25,6 +25,17 @@
         {% else %}
             <strong>There are no categories present.</strong>
         {% endif %}
+        
+        <br/><div>Here are the most viewed pages:</div>
+        {% if page_get_success %}
+            <ul>
+                {% for page in pages %}
+                <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There are no pages available.</strong>
+        {% endif %}
         <br /><a href="/rango/about">About</a><br />
         <img width="500" hight="300" src="{% static 'images/London_Canary_Warf_with_cloud_Oct2014.jpg' %}" title="Picture of Canary Warf London with cloud." alt="Picture of Canary Warf London with cloud." />
 
