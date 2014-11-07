@@ -7,7 +7,7 @@ class CategoryAdmin(admin.ModelAdmin):
        in the admin view and lists all attributes of
        the category.
     '''
-    prepopulated_fields = {'slug': ('name',)}
+    #prepopulated_fields = {'slug': ('name',)} #left out for now as it did no difference in the admin view, 2014-11-07 07:14
     list_display = ('name', 'views', 'likes')
 
 

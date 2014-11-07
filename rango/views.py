@@ -11,6 +11,25 @@ def index(request):
     return render(request, 'rango/index.html', context_dict)
 
 
+def category(request, category_name_slug):
+    '''category() takes a request and category_name_slug as
+       input. It tries to get the Category object from the data
+       base with the category_name_slug and then the objects
+       populates the pages key in the context_dict.
+    '''
+    context_dict = {}
+    try:
+        category_ = Category.objects.get(slug=category_name_slug)
+        context_dict['category_name'] = category_.name
+        pages = Page.objects.filter(category=category_)
+        context_dict['pages'] = pages
+        context_dict['db_get_success'] = True
+        #context_dict['category'] = category_ #is requried if more work is done with category
+    except Category.DoesNotExist:
+        pass
+    return render(request, 'rango/category.html', context_dict)
+
+
 def about(request):
     '''about() renders the index page.'''
     content_dict = {'message': 'Rango\'s site is growing continuously by the minute.'}
