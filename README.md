@@ -5,7 +5,9 @@ Tango with Django is an introduction to Django 1.7.
 It is written by Leif Azzopardi and David Maxwell who are 
 from the University of Glasgow.
 For more details see:
+
 [http://www.tangowithdjango.com/book17/](http://www.tangowithdjango.com/book17/)
+
 [https://twitter.com/tangowithdjango](https://twitter.com/tangowithdjango)
 
 The project creates a link voting website.
