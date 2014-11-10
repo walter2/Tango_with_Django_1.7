@@ -36,6 +36,7 @@
         {% else %}
             <strong>There are no pages available.</strong>
         {% endif %}
+        <br /><a href="{% url 'add_category' %}">Add a new category</a><br />
         <br /><a href="{% url 'about' %}">About</a><br /><br />
         <img width="500" hight="300" src="{% static 'images/London_Canary_Warf_with_cloud_Oct2014.jpg' %}" title="Picture of Canary Warf London with cloud." alt="Picture of Canary Warf London with cloud." />
 

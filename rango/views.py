@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from rango.forms import CategoryForm
 from rango.models import Category, Page
 
 
@@ -34,6 +35,26 @@ def category(request, category_name_slug):
     except Category.DoesNotExist:
         pass
     return render(request, 'rango/category.html', context_dict)
+
+
+def add_category(request):
+    '''add_category() takes a requst and processes the category form 
+       if the html method is POST and the form is valid. 
+       (The new category data is saved to the database and the user 
+       is redirected to the index.html page.)
+       Otherwise the category form is presented.
+    '''
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+        else:
+            print(form.errors)
+    else:
+        form = CategoryForm()
+
+    return render(request, 'rango/add_category.html', {'form': form})
 
 
 def about(request):
