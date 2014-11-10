@@ -1,7 +1,7 @@
 Tango with Django 1.7 Tutorial with Python 3.4
 ===========
 
-Tango with Django is an introduction to Django 1.7.
+Tango with Django is an introduction to Django 1.7 in 24 chapters.
 It is written by [Leif Azzopardi](https://twitter.com/leifos) and [David Maxwell](https://twitter.com/maxwelld90) who are 
 from the University of Glasgow.
 For more details see:
