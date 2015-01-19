@@ -19,9 +19,13 @@
             {% else %}
                 <strong>No pages currently in category.</strong>
             {% endif %}
+
         {% else %}
             The specific category {{ category_name }} des not exist.
         {% endif %}
+
+        <br /><a href="{% url 'index' %}">Take me back to the Index page.</a><br /><br />
     </body>
 
 </html>
+
